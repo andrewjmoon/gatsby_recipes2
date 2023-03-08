@@ -13,12 +13,8 @@ exports.onRenderBody = ({ setHtmlAttributes }) => {
 }
 */
 const React = require('react')
-const {IdenityProvider} = require('./identity-context')
+const {IdentityProvider} = require('./identity-context')
 
 exports.wrapRootElement = ({element}) => {
-    return (
-    <IdenityProvider>
-        {element}
-    </IdenityProvider>
-    )
+  return <IdentityProvider>{element}</IdentityProvider>
 }

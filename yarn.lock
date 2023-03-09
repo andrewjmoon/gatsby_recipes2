@@ -5004,7 +5004,7 @@ gatsby-plugin-manifest@^5.7.0:
     gatsby-core-utils "^4.7.0"
     gatsby-plugin-utils "^4.7.0"
     semver "^7.3.8"
-    sharp "^0.31.3"
+    sharp "^0.31.1"
 
 gatsby-plugin-page-creator@^5.7.0:
   version "5.7.0"
@@ -5040,7 +5040,7 @@ gatsby-plugin-sharp@^5.7.0:
     lodash "^4.17.21"
     probe-image-size "^7.2.3"
     semver "^7.3.8"
-    sharp "^0.31.3"
+    sharp "^0.31.1"
 
 gatsby-plugin-typescript@^5.7.0:
   version "5.7.0"
@@ -5089,7 +5089,7 @@ gatsby-sharp@^1.7.0:
   integrity sha512-a7arQkNZ+T+g2ZoOsiDEMuMHpELTlOfdm5DyKNGrdI19WhVBvU9ix4utxp/I58/e7NNdEG/eSaYk3Qz/ueEilQ==
   dependencies:
     "@types/sharp" "^0.31.1"
-    sharp "^0.31.3"
+    sharp "^0.31.1"
 
 gatsby-source-filesystem@^5.7.0:
   version "5.7.0"
@@ -5136,7 +5136,7 @@ gatsby-transformer-sharp@^5.7.0:
     gatsby-plugin-utils "^4.7.0"
     probe-image-size "^7.2.3"
     semver "^7.3.8"
-    sharp "^0.31.3"
+    sharp "^0.31.1"
 
 gatsby-worker@^2.7.0:
   version "2.7.0"
@@ -8313,8 +8313,8 @@ shallow-compare@^1.2.2:
   resolved "https://registry.yarnpkg.com/shallow-compare/-/shallow-compare-1.2.2.tgz#fa4794627bf455a47c4f56881d8a6132d581ffdb"
   integrity sha512-LUMFi+RppPlrHzbqmFnINTrazo0lPNwhcgzuAXVVcfy/mqPDrQmHAyz5bvV0gDAuRFrk804V0HpQ6u9sZ0tBeg==
 
-sharp@^0.31.3:
-  version "0.31.3"
+sharp@^0.31.1:
+  version "0.31.1"
   resolved "https://registry.yarnpkg.com/sharp/-/sharp-0.31.3.tgz#60227edc5c2be90e7378a210466c99aefcf32688"
   integrity sha512-XcR4+FCLBFKw1bdB+GEhnUNXNXvnt0tDo4WsBsraKymuo/IAuPuCBVAL2wIkUw2r/dwFW5Q5+g66Kwl2dgDFVg==
   dependencies:

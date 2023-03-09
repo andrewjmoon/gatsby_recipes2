@@ -5,8 +5,8 @@ import { IdentityContext } from '../../identity-context'
 
 const PrivateRoute = ({component: Component, location, ...rest}) => {
     const {user} = useContext(IdentityContext)
-    if (!user && location.pathname !== `/app/login`) {
-        navigate('/app/login')
+    if (!user && location.pathname !== `/user/login`) {
+        navigate('/user/login')
         return null
     }
     return <Component {...rest} />

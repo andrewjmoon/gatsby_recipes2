@@ -1,0 +1,9 @@
+[build]
+
+command = "yarn build"
+functions = "functions"
+
+[[redirects]]
+    from = "/user/*"
+    to = "/user/index.html"
+    status = 200

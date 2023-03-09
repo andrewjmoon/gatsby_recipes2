@@ -12,7 +12,7 @@ const Default = ()=> <h1>Default Page</h1>
 const App = () => {
     return (
     <>
-    <Router basepath="/app">
+    <Router basepath="/user">
         <PrivateRoute component={Dash} path= "/dashboard" />
         <Login path= "/login" />
         <Default path="/" />

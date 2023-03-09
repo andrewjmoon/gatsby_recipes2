@@ -5,7 +5,7 @@ import { IdentityContext } from '../../identity-context'
 const Login = () => {
     const {netlifyIdentity} = useContext(IdentityContext)
     netlifyIdentity.on('login', (user) => {
-        navigate('/app/dashboard')
+        navigate('/user/dashboard')
     })
 
     return (

@@ -37,7 +37,7 @@ const converter = new Showdown.Converter()
 const RecipePosts = ({ newPosts }) => {
 
   const { loading, error, data } = useQuery(GET_POSTS, {
-    fetchPolicy: "no-cache",
+    
   })
 
   const renderPosts = recipes => {

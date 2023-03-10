@@ -7,7 +7,7 @@ import "react-mde/lib/styles/css/react-mde-all.css"
 import { getPosts4 } from "../../queries"
 
 const ADD_RECIPE = gql`
-  mutation addSidedish($title: String!, $content: String!) {
+  mutation insert_grocerylist($title: String!, $content: String!) {
     insert_grocerylist(objects: [{ title: $title, content: $content }]) {
       returning {
         title

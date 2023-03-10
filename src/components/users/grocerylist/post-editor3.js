@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import { useMutation } from "@apollo/client"
-import gql from "graphql-tag"
+import { useMutation, gql } from "@apollo/client"
+//import gql from "graphql-tag"
 import * as Showdown from "showdown"
 import ReactMde from "react-mde"
 import "react-mde/lib/styles/css/react-mde-all.css"

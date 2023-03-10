@@ -13,6 +13,17 @@
   margin-bottom: var(--size-gap);
   margin-top: var(--size-gap);
 }
+.App {
+  text-align: center;
+  margin-top: 100px;
+  padding: 10px;
+  background-color: linen;
+}
+.App2 {
+  text-align: center;
+  padding: 50px;
+  background-color: linen;
+}
 /*
 .listItem {
   margin: 0;

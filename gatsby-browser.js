@@ -15,8 +15,6 @@ const cache = new InMemoryCache()
 
 const httpLink = new HttpLink({
   uri: "https://meet-whippet-78.hasura.app/v1/graphql",
-  fetch: crossFetch,
-  credentials: 'same-origin',
 })
 // inject auth
 const middlewareLink = new ApolloLink((operation, forward) => {

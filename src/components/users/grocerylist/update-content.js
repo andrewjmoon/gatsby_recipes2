@@ -1,8 +1,8 @@
 import React from "react"
-import { useMutation, useQuery } from "@apollo/client"
+import { useMutation, useQuery, gql } from "@apollo/client"
 import "react-mde/lib/styles/css/react-mde-all.css"
 //import { updateContent } from "../../queries"
-import gql from "graphql-tag"
+//import gql from "graphql-tag"
 import { Link } from "@reach/router"
 
 const getPosts = gql`

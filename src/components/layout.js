@@ -26,10 +26,12 @@ const Layout = ({ children }) => {
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
+      className='App'
         style={{
           margin: `0 auto`,
           maxWidth: `var(--size-content)`,
           padding: `var(--size-gutter)`,
+          marginTop: `70px`,
         }}
       >
         <main>{children}</main>

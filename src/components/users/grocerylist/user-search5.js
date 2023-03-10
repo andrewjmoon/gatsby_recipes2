@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import { useLazyQuery } from "@apollo/client"
-import gql from "graphql-tag"
+import { useLazyQuery, gql } from "@apollo/client"
+//import gql from "graphql-tag"
 import InputForm from "../shared/input-form"
 import GroceryPosts from "./grocerylist-posts"
 

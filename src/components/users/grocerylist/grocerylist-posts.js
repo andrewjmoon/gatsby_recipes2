@@ -1,6 +1,6 @@
 import React from "react"
-import { useQuery } from "@apollo/client"
-import gql from "graphql-tag"
+import { useQuery, gql } from "@apollo/client"
+//import gql from "graphql-tag"
 import * as Showdown from "showdown"
 import {Grid, Paper, List, ListItem} from "@mui/material"
 import { Link } from "@reach/router"

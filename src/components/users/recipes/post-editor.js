@@ -7,7 +7,7 @@ import "react-mde/lib/styles/css/react-mde-all.css"
 import { getPosts } from "../../queries"
 
 const ADD_RECIPE = gql`
-  mutation addSidedish(
+  mutation insert_recipes(
     $title: String!
     $content: String!
     $category: String!

@@ -16,12 +16,16 @@ const cache = new InMemoryCache()
 const httpLink = new HttpLink({
   uri: "https://meet-whippet-78.hasura.app/v1/graphql",
 })
+
+const currentUser = netlifyIdentity.currentUser()
+const token = currentUser ? currentUser.token.access_token : null
+
 // inject auth
 const middlewareLink = new ApolloLink((operation, forward) => {
   operation.setContext({
     headers: {
       authorization:
-        `Bearer ${netlifyIdentity.currentUser().token.access_token}` || null,
+        `Bearer ${token}` || null,
     },
   })
   return forward(operation)

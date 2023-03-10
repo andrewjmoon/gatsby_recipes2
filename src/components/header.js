@@ -9,7 +9,7 @@ import {
 import {
   colors,
   NavToolbar,
-} from "./Tools";
+} from "./tools";
 import {Link} from 'gatsby';
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import PropTypes from "prop-types"

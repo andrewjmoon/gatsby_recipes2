@@ -7,7 +7,40 @@
 // You can delete this file if you're not using it
 const React = require('react')
 const {IdentityProvider} = require('./identity-context')
+const {netlifyIdentity} = require('./identity-context.js')
+const {crossFetch, ApolloProvider, ApolloClient, InMemoryCache, HttpLink, ApolloLink  } = require('@apollo/client')
+
+
+const cache = new InMemoryCache()
+
+const httpLink = new HttpLink({
+  uri: "https://meet-whippet-78.hasura.app/v1/graphql",
+  fetch: crossFetch,
+  credentials: 'same-origin',
+})
+// inject auth
+const middlewareLink = new ApolloLink((operation, forward) => {
+  operation.setContext({
+    headers: {
+      authorization:
+        `Bearer ${netlifyIdentity.currentUser().token.access_token}` || null,
+    },
+  })
+  return forward(operation)
+})
+
+// use with apollo-client
+const link = middlewareLink.concat(httpLink)
+
+const client = new ApolloClient({
+  link,
+  cache,
+})
 
 exports.wrapRootElement = ({element}) => {
-    return<IdentityProvider>{element}</IdentityProvider>
+  return (
+    <ApolloProvider client={client}>
+      <IdentityProvider>{element}</IdentityProvider>
+    </ApolloProvider>
+  )
 }

@@ -1,14 +1,15 @@
+const {HASURA_ADMIN_SECRET, GATSBY_HASURA_URL } = process.env
 const fetch = require('node-fetch')
 
 exports.handler = async (event) => {
     const {user} = JSON.parse(event.body)
 
     try {
-        const data = await fetch(process.env.HASURA_URL, {
+        const data = await fetch(GATSBY_HASURA_URL, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
-                "x-hasura-admin-secret": `${process.env.HASURA_ADMIN_SECRET}`
+                "x-hasura-admin-secret": `${HASURA_ADMIN_SECRET}`
             },
             body: JSON.stringify({
                 query: `

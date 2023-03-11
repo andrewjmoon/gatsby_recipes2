@@ -6,8 +6,9 @@
 
 // You can delete this file if you're not using it
 const React = require('react')
+const fetch = require('isomorphic-fetch');
 const {IdentityProvider} = require('./identity-context')
-const {netlifyIdentity} = require('./identity-context.js')
+const {netlifyIdentity} = require('./identity-context')
 const {crossFetch, ApolloProvider, ApolloClient, InMemoryCache, HttpLink, ApolloLink  } = require('@apollo/client')
 
 
@@ -35,6 +36,7 @@ const middlewareLink = new ApolloLink((operation, forward) => {
 const link = middlewareLink.concat(httpLink)
 
 const client = new ApolloClient({
+  fetch,
   link,
   cache,
 })

@@ -7,6 +7,10 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -22,6 +26,12 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
+    },
+    {
+      resolve: 'gatsby-plugin-apollo',
+      options: {
+        uri: 'https://meet-whippet-78.hasura.app/v1/graphql'
+      }
     },
     {
       resolve: `gatsby-plugin-alias-imports`,

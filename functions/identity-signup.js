@@ -9,7 +9,7 @@ exports.handler = async (event) => {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
-                "x-hasura-admin-secret": HASURA_ADMIN_SECRET
+                "x-hasura-admin-secret": `${HASURA_ADMIN_SECRET}`,
             },
             body: JSON.stringify({
                 query: `

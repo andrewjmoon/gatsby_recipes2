@@ -9,7 +9,7 @@ exports.handler = async (event) => {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
-                "x-hasura-admin-secret": `${HASURA_ADMIN_SECRET}`
+                "x-hasura-admin-secret": HASURA_ADMIN_SECRET
             },
             body: JSON.stringify({
                 query: `
@@ -29,15 +29,12 @@ exports.handler = async (event) => {
     }   catch(e) {
         console.error(JSON.stringify(e), null, 2)
         return {
-            statusCode: 500
+            statusCode: 500,
+            body: "Something is wrong",
         }
     }
     return {
         statusCode: 200,
-        body: JSON.stringify({
-            app_metadata: {
-                role: ['free'],
-            },
-        }),
+        body: "{}",
     }
 }

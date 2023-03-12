@@ -3,30 +3,28 @@
  *
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/
  */
-
-// You can delete this file if you're not using it
+/*
 const React = require('react')
-const fetch = require('isomorphic-fetch');
 const {IdentityProvider} = require('./identity-context')
-const {netlifyIdentity} = require('./identity-context')
-const {crossFetch, ApolloProvider, ApolloClient, InMemoryCache, HttpLink, ApolloLink  } = require('@apollo/client')
 
+const {netlifyIdentity} = require('./identity-context.js')
+const {ApolloProvider} = require('@apollo/react-hooks')
+const {ApolloClient} = require('apollo-client')
+const {createHttpLink} = require('apollo-link-http')
+const {ApolloLink} = require('apollo-link')
+const {InMemoryCache} = require('apollo-cache-inmemory')
 
 const cache = new InMemoryCache()
 
-const httpLink = new HttpLink({
-  uri: "https://meet-whippet-78.hasura.app/v1/graphql",
+const httpLink = createHttpLink({
+  uri: "https://large-unicorn-27.hasura.app/v1/graphql",
 })
-
-const currentUser = netlifyIdentity.currentUser()
-const token = currentUser ? currentUser.token.access_token : null
-
 // inject auth
 const middlewareLink = new ApolloLink((operation, forward) => {
   operation.setContext({
     headers: {
       authorization:
-        `Bearer ${token}` || null,
+        `Bearer ${netlifyIdentity.currentUser().token.access_token}` || null,
     },
   })
   return forward(operation)
@@ -36,7 +34,6 @@ const middlewareLink = new ApolloLink((operation, forward) => {
 const link = middlewareLink.concat(httpLink)
 
 const client = new ApolloClient({
-  fetch,
   link,
   cache,
 })
@@ -48,3 +45,7 @@ exports.wrapRootElement = ({element}) => {
     </ApolloProvider>
   )
 }
+*/
+// You can delete this file if you're not using it
+
+export { wrapRootElement } from './src/utils/apollo.js'

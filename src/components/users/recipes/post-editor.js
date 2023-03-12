@@ -51,7 +51,7 @@ const converter = new Showdown.Converter({
   simplifiedAutoLink: true,
   strikethrough: true,
   tasklists: true,
-})
+});
 
 const PostEditor = () => {
   const [post, setPost] = useState({
@@ -60,21 +60,47 @@ const PostEditor = () => {
     category: "",
     type: "",
     source: "",
-  })
-  const [addPost, { data }] = useMutation(ADD_RECIPE, {
-    refetchQueries: [{ query: getPosts }],
-    awaitRefetchQueries: true,
-  })
+  });
+  const [addRecipe] = useMutation(ADD_RECIPE, {
+    onCompleted: () => {
+      setPost({
+        title: "",
+        content: "",
+        category: "",
+        type: "",
+        source: "",
+      });
+    },
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await addRecipe({
+      variables: {
+        title: post.title,
+        content: post.content,
+        category: post.category,
+        type: post.type,
+        source: post.source,
+      },
+      update: (cache, { data: { insert_recipes } }) => {
+        const existingData = cache.readQuery({ query: getPosts });
+        const newData = {
+          ...existingData,
+          recipes: [
+            ...existingData.recipes,
+            insert_recipes.returning[0],
+          ],
+        };
+        cache.writeQuery({ query: getPosts, data: newData });
+      },
+    });
+  };
+
   const [selectedTab, setSelectedTab] = useState("write")
 
   return (
-    <form
-      onSubmit={e => {
-        e.preventDefault()
-        addPost({ variables: post })
-        setPost({ title: "", content: "", category: "", type: "", source: "" })
-      }}
-    >
+    <form onSubmit={handleSubmit}>
       <div className="w-full mb-6 md:mb-0">
         <label
           className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"

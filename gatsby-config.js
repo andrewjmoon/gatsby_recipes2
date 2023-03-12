@@ -10,6 +10,8 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
+const fetch = require(`isomorphic-fetch`)
+const { createHttpLink } = require(`@apollo/client`)
 
 module.exports = {
   siteMetadata: {
@@ -26,6 +28,23 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
+    },
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: `hasura`,
+        fieldName: `users`,
+        createLink: () => {
+          return createHttpLink({
+            uri: "https://meet-whippet-78.hasura.app/v1/graphql",
+            // uri: "https://hasura-heroku-based.herokuapp.com/v1/graphql",
+            headers: {
+              'x-hasura-admin-secret': `${process.env.HASURA_ADMIN_SECRET}`,
+            },
+            fetch,
+          })
+        },
+      }
     },
     {
       resolve: 'gatsby-plugin-apollo',

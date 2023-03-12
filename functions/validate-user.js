@@ -6,7 +6,7 @@ exports.handler = async (event, context) => {
             statusCode: 200,
             body: JSON.stringify({
                 'X-Hasura-User-Id': userID,
-                'X-Hasura-Role': `${user.app_metadata.role[0]}`
+                'X-Hasura-Role': "user",
             })
         }
     }

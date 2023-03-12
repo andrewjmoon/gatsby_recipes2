@@ -1,3 +1,4 @@
+export { wrapRootElement } from './src/utils/apollo.js'
 /**
  * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
  *
@@ -11,7 +12,7 @@
 exports.onRenderBody = ({ setHtmlAttributes }) => {
   setHtmlAttributes({ lang: `en` })
 }
-*/
+
 const React = require('react')
 const {IdentityProvider} = require('./identity-context')
 const fetch = require('isomorphic-fetch');
@@ -56,3 +57,4 @@ exports.wrapRootElement = ({element}) => {
     </ApolloProvider>
   )
 }
+*/

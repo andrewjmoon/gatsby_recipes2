@@ -14,7 +14,7 @@ exports.handler = async (event) => {
             body: JSON.stringify({
                 query: `
                 mutation UserMutation($email:String, $id: String, $name: String){
-                insert_users(objects: {email: $email, id: $id, name: $name}) {
+                insert_user(objects: {email: $email, id: $id, name: $name}) {
                 affected_rows
                     }
                   }
